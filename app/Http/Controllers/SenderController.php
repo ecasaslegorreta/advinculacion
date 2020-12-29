@@ -64,7 +64,7 @@ class SenderController extends Controller
     public function show(Sender $sender)
     {
         //
-        $correspondences = Correspondence::where('sender_id',$sender->id)->get();
+       $correspondences = Correspondence::where('sender_id',$sender->id)->get();
         //$sender ->Correspondences;
         //$senders =Sender::with('correspondences')->get();
 
