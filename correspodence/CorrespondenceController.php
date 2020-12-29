@@ -77,11 +77,10 @@ class CorrespondenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(correspondence $correspondence)
+    public function edit($id)
     {
         //
-        $senders =Sender::all();
-        return view('correspondences.edit',compact('correspondence','senders'));
+        return view('senders.edit',compact('sender'));
     }
 
     /**
