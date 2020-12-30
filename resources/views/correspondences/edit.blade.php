@@ -37,11 +37,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <h2>Remitente</h2>
-                        <select class="form-control" name="sender_id" id="sender_id">
+                        <select class="form-control" name="sender_id" id="">
+                        <option value="{{ $correspondence->id }}" value="" disabled="" selected="">{{$correspondence->$senders->name}}>
                             @foreach($senders as $sender)
-                                <option value="{{ $sender->id }}" {{ old('sender_id') == $sender->id ? "selected" : "" }}>
-                                    {{$sender->name}}
-                                </option>
+                                <option value="{{$sender->id}}">{{$sender->name}}</option>
+                            </option>
                                 
                             @endforeach
                         </select>
