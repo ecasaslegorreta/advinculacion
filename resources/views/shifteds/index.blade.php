@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section ('title','Indiacaciones')
+@section ('title','Turnos')
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -9,10 +9,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-                <h1>Indicaciones</h1>
+                <h1>Turnos</h1>
         </div>
         <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('positions.create') }}"> Crear Nueva indicación</a>
+                <a class="btn btn-success" href="{{ route('shifteds.create') }} "> Nueva correspondencia</a>
         </div>
     </div>
     <br>
@@ -22,22 +22,26 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th width="800px">Indicación</th>
-                        <th width="200px">Action</th>
+                        <th>Referencias</th>
+                        <th>Asunto</th>
+                        <th>Respuesta</th>
+                        <th width="120px">Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($positions as $position)
+                    @foreach ($shifteds as $shifted)
                         <tr>
-                            <td>{{ $position->id }}</td>
-                            <td>{{ $position->name }}</td>
+                            <td>{{ $shifted->id }}</td>
+                            
+                            <td>{{ $shifted->correspondence->noSiase }} <p> <small> {{ $shifted->correspondence->noOficio }}, {{ $shifted->correspondence->fechaRecepcion }} </small></p> </td>
+                            <td>{{ $shifted->correspondence->body }}</td>
+                            <td>{{ $shifted->bodyTurno }}</td>
+
                             <td>
-                                <form action="{{ route('positions.destroy',$position->id) }}" method="POST" class="formulario-eliminar">
+                                <form action="#" method="POST" class="formulario-eliminar">
                 
-                                    <a class="btn btn-info" href="{{ route('positions.show',$position->id) }}">Show</a>
-                    
-                                    <a class="btn btn-primary" href="{{ route('positions.edit',$position->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="#">Edit</a>
                 
                                     @csrf
                                     @method('DELETE')

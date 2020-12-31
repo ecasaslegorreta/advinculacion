@@ -8,12 +8,12 @@
             <h2>Crear nuevo grado academico</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('positions.index') }}"> Regresar a Grados cademicos</a>
+            <a class="btn btn-primary" href="{{ route('positions.index') }}"> Regresar a indicaciones</a>
             <br>
         </div>
     </div>
 </div>
-   
+   <br>
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>

@@ -53,7 +53,7 @@ class CorrespondenceController extends Controller
             'body'=>'required'
      
         ]);
-         //  dd($request);
+         //dd($request);
         Correspondence::create($request->all());
    
         return redirect()->route('correspondences.index')
@@ -69,6 +69,7 @@ class CorrespondenceController extends Controller
     public function show($id)
     {
         //
+        return view('correspondence.show',compact('id'));
     }
 
     /**
@@ -77,9 +78,12 @@ class CorrespondenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(correspondence $correspondence)
     {
         //
+        $senders =Sender::all();
+        $senderr = Sender::where('id',$correspondence->sender_id)->first();
+        return view('correspondences.edit',compact('correspondence','senders','senderr'));
     }
 
     /**
@@ -89,10 +93,26 @@ class CorrespondenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Correspondence $correspondence)
     {
         //
-    }
+        //dd($correspondence);
+        $request->validate([
+            'sender_id'  => 'required',
+            'noSiase' => 'required',
+            'noOficio'  => 'required',
+            'fechaRecepcion' => 'required',
+            'body'=>'required'
+     
+        ]);
+        
+        $correspondence->update($request->all());
+        //$sender ->update($request->all());
+   
+        return redirect()->route('correspondences.index')
+                            ->with('opcion','si');
+
+    } 
 
     /**
      * Remove the specified resource from storage.
@@ -100,8 +120,12 @@ class CorrespondenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(correspondence $correspondence)
     {
         //
+
+        $correspondence ->delete();
+        return redirect()->route('correspondences.index')
+                        ->with('opcion','de');
     }
 }

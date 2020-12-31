@@ -41,13 +41,22 @@
                     <input type="text" name="cargo" class="form-control" placeholder="enter Cargo" value="{{ $sender->cargo }}">
                 </div>
             </div>
+
+            @if ($sender->area =='Externa')
+                @php ($Externa = 'checked')
+                @php ($Interna = '')
+            @else
+                    @php ($Externa = '')
+                    @php ($Interna = 'checked')
+            @endif  
+
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <form action="#" value="{{ $sender->area }}">
                     <p><strong>Área: Remitente/Interna</strong></p>
-                        <input type="radio" id="male" name="area" value="Externa">
-                            <label for="Externa">Externa</label>
-                        <input type="radio" id="Interna" name="area" value="Interna">
-                            <label for="Interna">Interna</label><br>
+                    <input type="radio" id="Externa" name="area" value="Externa" {{$Externa}}>
+                        <label for="Externa">Externa</label>
+                    <input type="radio" id="Interna" name="area" value="Interna" {{$Interna}}>
+                        <label for="Interna">Interna</label><br>
                   </form>
             </div>
             <div class="row">

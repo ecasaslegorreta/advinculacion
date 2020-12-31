@@ -16,11 +16,10 @@ class Correspondence extends Model
         'body'
     ];
 
-
-
-
-
     public function sender(){
         return $this->belongsTo('App\Sender');
+    }
+    public function shifteds(){
+        return $this->hasMany('App\Shifted');
     }
 }

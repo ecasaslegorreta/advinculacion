@@ -1,14 +1,14 @@
 @extends('adminlte::page')
-@section ('title','Grado academico | Actualizar')
+@section ('title','Indicación | Actualizar')
    
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Actualiza Grado acdemico</h2>
+                <h2>Indicaciones</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('positions.index') }}"> Regresa a Grado academico</a>
+                <a class="btn btn-primary" href="{{ route('positions.index') }}"> Regresa a indicaciones</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Grado academico:</strong>
+                    <strong>Indicación:</strong>
                     <input type="text" name="name" value="{{ $position->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>

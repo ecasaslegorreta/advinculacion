@@ -248,23 +248,27 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+       
+        ['header' => 'Correspondencia'],
         [
-            'text' => 'Correspondencia',
+            'text' => 'Recepción',
             'url'  => 'correspondences',
             'icon' => 'fas fa-fw fa-user',
+            'icon_color' => 'green',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Seguimiento',
+            'url'  => 'shifteds',
+            'icon' => 'fas fa-file-invoice',
+            'icon_color' => 'yellow',
         ],
+
         [
             'text'    => 'Catalogos',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Grado escolar',
+                    'text' => 'Posición',
                     'icon_color' => 'yellow',
                     'url'  => 'positions',
                 ],

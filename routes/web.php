@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('positions', 'PositionController');
 Route::resource('senders', 'SenderController');
 Route::resource('correspondences','CorrespondenceController');
+Route::resource('shifteds', 'ShiftedController');

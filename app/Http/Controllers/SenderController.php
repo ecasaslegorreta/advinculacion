@@ -94,6 +94,8 @@ class SenderController extends Controller
     public function update(Request $request, Sender $sender)
     {
         //
+
+    //dd($sender);
         $request->validate([
             'name'  => 'required',
             'cargo' => 'required',

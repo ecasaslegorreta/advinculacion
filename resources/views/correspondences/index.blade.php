@@ -25,7 +25,7 @@
                         <th>Referencias</th>
                         <th>Remitente</th>
                         <th>Asunto</th>
-                        <th width="200px">Action</th>
+                        <th width="120px">Action</th>
                     </tr>
                 </thead>
 
@@ -35,14 +35,12 @@
                             <td>{{ $correspondence->id }}</td>
                             
                             <td>{{ $correspondence->noSiase }} <p> <small> {{ $correspondence->noOficio }}, {{ $correspondence->fechaRecepcion }} </small></p> </td>
-                            <td>{{ $correspondence->sender_id }} {{ $correspondence->Sender->name }}</td>
+                            <td>{{ $correspondence->Sender->name }}</td>
                             <td>{{ $correspondence->body }}</td>
                             <td>
-                                <form action="#" method="POST" class="formulario-eliminar">
+                                <form action="{{ route('correspondences.destroy',$correspondence->id) }}" method="POST" class="formulario-eliminar">
                 
-                                    <a class="btn btn-info" href="#">Show</a>
-                    
-                                    <a class="btn btn-primary" href="#">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('correspondences.edit',$correspondence->id)}}">Edit</a>
                 
                                     @csrf
                                     @method('DELETE')

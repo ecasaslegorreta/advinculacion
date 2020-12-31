@@ -25,4 +25,9 @@ class Sender extends Model
     public function correspondences(){
         return $this ->hasMany('App\Correspondence');
     }
+//           Relacion de uno a muchos un Remitente tiene muchos oficios(corresponce)
+    public function shifteds(){
+        return $this ->hasMany('App\Shifted');
+    }
+
 }
