@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\correspondence;
 use App\Sender;
+use App\Shifted;
 use Illuminate\Http\Request;
 
 class CorrespondenceController extends Controller
@@ -47,6 +48,7 @@ class CorrespondenceController extends Controller
         //
         $request->validate([
             'sender_id'  => 'required',
+            'recibo_id' =>'required',
             'noSiase' => 'required',
             'noOficio'  => 'required',
             'fechaRecepcion' => 'required',
@@ -66,10 +68,15 @@ class CorrespondenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Correspondence $correspondence)
     {
         //
-        return view('correspondence.show',compact('id'));
+        $shifteds = Shifted::where('correspondence_id',$correspondence->id)->get();
+        //$sender ->Correspondences;
+        //$senders =Sender::with('correspondences')->get();
+
+        //dd($correspondences);
+        return view('correspondences.show',compact('correspondence','shifteds'));
     }
 
     /**

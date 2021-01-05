@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Crear nuevo  turno</h2>
+            <h2>Crear turno</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('shifteds.index') }}"> Regresa a turnos</a>
@@ -29,20 +29,17 @@
     </div>
 @endif
 <br>
+<div class="card text-center">
+    <div class="card-header">
+        <p class="card-text">{{ $correspondence->sender->name }}</p>
+        <p class="card-text"><small> {{ $correspondence->fechaRecepcion }} / {{ $correspondence->noSiase }} / {{ $correspondence->noOficio }}</small></p>
+        <p class="card-text text-left"><small> {{ $correspondence->body }}</small></p>
 
+    </div>
+</div>
 <form action="{{ route('shifteds.store') }}" method="POST">
     @csrf
             <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <strong> Oficio:</strong>
-                        <select class="form-control" name="correspondence_id" id="correspondence">
-                            @foreach($correspondences as $correspondence)
-                                 <option value="{{ $correspondence->id }}">{{$correspondence->noSiase}}/ Oficio: {{$correspondence->noOficio}}</option>
-                            @endforeach
-                        </select>
-                    </div> 
-                </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <strong> Para:</strong>
@@ -73,6 +70,7 @@
                     </div>
                 </div>
             </div>
+
  
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">

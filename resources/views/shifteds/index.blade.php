@@ -7,15 +7,10 @@
 @stop
 
 @section('content')
-    <div class="row">
+   <div class="row">
         <div class="col-lg-12 margin-tb">
                 <h1>Turnos</h1>
         </div>
-        <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('shifteds.create') }} "> Nueva correspondencia</a>
-        </div>
-    </div>
-    <br>
     <div class="card">
         <div class="card-body">
             <table class="table table-striped table-bordered" data-order='[[ 0, "des" ]]' id="tabla" style="width:100%">
@@ -24,8 +19,9 @@
                         <th>Id</th>
                         <th>Referencias</th>
                         <th>Asunto</th>
+                        <th>Indicación</th>
                         <th>Respuesta</th>
-                        <th width="120px">Action</th>
+                        <th width="140px">Action</th>
                     </tr>
                 </thead>
 
@@ -35,18 +31,19 @@
                             <td>{{ $shifted->id }}</td>
                             
                             <td>{{ $shifted->correspondence->noSiase }} <p> <small> {{ $shifted->correspondence->noOficio }}, {{ $shifted->correspondence->fechaRecepcion }} </small></p> </td>
-                            <td>{{ $shifted->correspondence->body }}</td>
+                            <td>{{ $shifted->sender->name }} <p> <small> {{ $shifted->correspondence->body }}</small></p></td>
+                            <td>{{ $shifted->position->name }}</td>
                             <td>{{ $shifted->bodyTurno }}</td>
 
                             <td>
-                                <form action="#" method="POST" class="formulario-eliminar">
-                
-                                    <a class="btn btn-primary" href="#">Edit</a>
+                                <form action="{{ route('shifteds.destroy',$shifted->id) }}" method="POST" class="formulario-eliminar">
+                                    <a class="btn btn-info" href="{{ route('correspondences.show',$shifted->correspondence->id) }}">Show</a>
+                                    <a class="btn btn-primary" href="#"><i class="far fa-edit"></i></a>
                 
                                     @csrf
                                     @method('DELETE')
                     
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

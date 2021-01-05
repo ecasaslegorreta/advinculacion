@@ -33,8 +33,21 @@
            <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h2>Remitente</h2>
+                         <strong>Remitente</strong>
                         <select class="form-control" name="sender_id" id="sender">
+                            @foreach($senders as $sender)
+                                 <option value="{{ $sender->id }}">{{$sender->name}}</option>
+                            @endforeach
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <strong> Quien recibió:</strong>
+                        <select class="form-control" name="recibo_id" id="sender">
                             @foreach($senders as $sender)
                                  <option value="{{ $sender->id }}">{{$sender->name}}</option>
                             @endforeach

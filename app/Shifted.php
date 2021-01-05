@@ -20,7 +20,7 @@ class Shifted extends Model
         return $this->belongsTo('App\Sender');
     }
 
-    public function posotion(){
+    public function position(){
         return $this->belongsTo('App\Position');
     }
     //           Relacion de uno a muchos un Shifted-turando tiene muchos Turnos contestados(turando a)

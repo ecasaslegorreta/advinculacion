@@ -44,7 +44,7 @@ class SenderController extends Controller
             'name'  => 'required',
             'cargo' => 'required',
             'area'  => 'required',
-            'cp'    => 'digits_between:5,5|numeric',
+     //       'cp'    => 'digits_between:5,5|numeric',
             'email' => 'email'
      
         ]);

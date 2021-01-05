@@ -25,7 +25,7 @@
                         <th>Referencias</th>
                         <th>Remitente</th>
                         <th>Asunto</th>
-                        <th width="120px">Action</th>
+                        <th width="140px">Action</th>
                     </tr>
                 </thead>
 
@@ -39,13 +39,13 @@
                             <td>{{ $correspondence->body }}</td>
                             <td>
                                 <form action="{{ route('correspondences.destroy',$correspondence->id) }}" method="POST" class="formulario-eliminar">
-                
-                                    <a class="btn btn-primary" href="{{ route('correspondences.edit',$correspondence->id)}}">Edit</a>
+                                    <a class="btn btn-info" href="{{ route('correspondences.show',$correspondence->id) }}">Show</a>
+                                    <a class="btn btn-primary" href="{{ route('correspondences.edit',$correspondence->id)}}"><i class="far fa-edit"></i></a>
                 
                                     @csrf
                                     @method('DELETE')
                     
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

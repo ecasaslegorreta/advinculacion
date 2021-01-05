@@ -19,6 +19,9 @@ class CreateCorrespondencesTable extends Migration
             $table->unsignedBigInteger('sender_id')->nullable();
             $table->foreign('sender_id')->references('id')->on('senders');
 
+            $table->unsignedBigInteger('recibo_id')->nullable();
+            $table->foreign('recibo_id')->references('id')->on('senders');
+
             $table->string('noSiase',20);
             $table->string('noOficio',50);
             $table->date('fechaRecepcion');

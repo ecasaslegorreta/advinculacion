@@ -268,7 +268,7 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Posición',
+                    'text' => 'Indicación',
                     'icon_color' => 'yellow',
                     'url'  => 'positions',
                 ],

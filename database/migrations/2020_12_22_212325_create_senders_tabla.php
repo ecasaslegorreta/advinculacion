@@ -18,15 +18,15 @@ class CreateSendersTabla extends Migration
             $table->string('name');
             $table->string('cargo');
             $table->string('area',20);
-            $table->string('calle',50);
-            $table->string('noInterior', 15);
-            $table->string('noExterior',15);
-            $table->string('colonia',50);
-            $table->Integer('cp');
-            $table->string('ciudad');
+            $table->string('calle',50)->nullable();
+            $table->string('noInterior', 15)->nullable();
+            $table->string('noExterior',15)->nullable();
+            $table->string('colonia',50)->nullable();
+            $table->Integer('cp')->nullable();
+            $table->string('ciudad')->nullable();
 
-            $table->string('telefono',30);
-            $table->string('celular',30);
+            $table->string('telefono',30)->nullable();
+            $table->string('celular',30)->nullable();
             $table->string('email')->unique();
           
             $table->timestamps();

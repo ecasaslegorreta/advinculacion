@@ -26,7 +26,7 @@
                         <th>Telefono</th>
                         <th>Celular</th>
                         <th>Email</th>
-                        <th width="180px">Action</th>
+                        <th width="140px">Action</th>
                     </tr>
                 </thead>
 
@@ -43,12 +43,12 @@
                 
                                     <a class="btn btn-info" href="{{ route('senders.show',$sender->id) }}">Show</a>
                     
-                                    <a class="btn btn-primary" href="{{ route('senders.edit',$sender->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('senders.edit',$sender->id) }}"><i class="far fa-edit"></i></a>
                 
                                     @csrf
                                     @method('DELETE')
                     
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

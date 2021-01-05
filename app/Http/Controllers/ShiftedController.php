@@ -20,7 +20,8 @@ class ShiftedController extends Controller
         //
 
         $shifteds = Shifted::all();
-//        dd($shifteds);
+        //gerar condición de busqueda solo los que no esta en acurdo del catalogo de position
+       //dd($shifteds);
         return view('shifteds.index',compact('shifteds'));
     }
 
@@ -29,15 +30,16 @@ class ShiftedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
-        $correspondences = Correspondence::all();
+        //$correspondences = Correspondence::all();
+        $correspondence = Correspondence::where('id',$id)->first();
         $senders =Sender::all();
         $positions = Position::all();
 
         //dd($senders);
-        return view('shifteds.create',compact('correspondences','senders','positions'));
+        return view('shifteds.create',compact('correspondence','senders','positions'));
     }
 
     /**
@@ -73,7 +75,12 @@ class ShiftedController extends Controller
      */
     public function show(Shifted $shifted)
     {
-        //
+        $shifteds = Shifted::where('correspondence_id',$correspondence->id)->get();
+        //$sender ->Correspondences;
+        //$senders =Sender::with('correspondences')->get();
+        $correspondence = Correspondence::where('id',$correspondence->id)->first();
+        //dd($correspondences);
+        return view('correspondences.show',compact('correspondence','shifteds'));
     }
 
     /**
@@ -84,7 +91,10 @@ class ShiftedController extends Controller
      */
     public function edit(Shifted $shifted)
     {
-        //
+ 
+        $senders =Sender::all();
+        $senderr = Sender::where('id',$correspondence->sender_id)->first();
+        return view('correspondences.edit',compact('shifted','senders','senderr'));
     }
 
     /**
@@ -108,5 +118,9 @@ class ShiftedController extends Controller
     public function destroy(Shifted $shifted)
     {
         //
+
+        $shifted ->delete();
+        return redirect()->route('shifteds.index')
+                        ->with('opcion','de');
     }
 }

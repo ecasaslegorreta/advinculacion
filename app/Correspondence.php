@@ -10,6 +10,7 @@ class Correspondence extends Model
 
     protected $fillable = [
         'sender_id',
+        'recibo_id',
         'noSiase',
         'noOficio',
         'fechaRecepcion',

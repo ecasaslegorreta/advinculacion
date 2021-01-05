@@ -23,7 +23,7 @@
                     <tr>
                         <th>Id</th>
                         <th width="800px">Indicación</th>
-                        <th width="200px">Action</th>
+                        <th width="140px">Action</th>
                     </tr>
                 </thead>
 
@@ -37,12 +37,12 @@
                 
                                     <a class="btn btn-info" href="{{ route('positions.show',$position->id) }}">Show</a>
                     
-                                    <a class="btn btn-primary" href="{{ route('positions.edit',$position->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('positions.edit',$position->id) }}"><i class="far fa-edit"></i></a>
                 
                                     @csrf
                                     @method('DELETE')
                     
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
