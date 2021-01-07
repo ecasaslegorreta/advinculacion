@@ -31,7 +31,7 @@
 <br>
 <div class="card text-center">
     <div class="card-header">
-        <p class="card-text">{{ $correspondence->sender->name }}</p>
+        <p class="card-text">{{ $correspondence->sender->name }}{{  $correspondence->sender->id }}</p>
         <p class="card-text"><small> {{ $correspondence->fechaRecepcion }} / {{ $correspondence->noSiase }} / {{ $correspondence->noOficio }}</small></p>
         <p class="card-text text-left"><small> {{ $correspondence->body }}</small></p>
 
@@ -40,6 +40,17 @@
 <form action="{{ route('shifteds.store') }}" method="POST">
     @csrf
             <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <strong> Id remitente:</strong>
+                        <select class="form-control" name="correspondence_id" id="">
+                            <option  value="{{ $correspondence->id  }}">{{ $correspondence->snoOficio }}</option>
+                                @foreach($correspondences as $correspondenc)
+                                    <option value="{{ $correspondenc->id }}">{{$correspondenc->noOficio}}</option>
+                                @endforeach                                              
+                        </select>
+                    </div> 
+                </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <strong> Para:</strong>
@@ -76,9 +87,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Turno:</strong>
-                    <textarea class="form-control" style="height:150px" name="bodyTurno" placeholder="Propuesta de oficio" >
-                        {{{ old('bodyTurno') }}}
-                    </textarea>
+                    <textarea class="form-control" style="height:150px" name="bodyTurno" placeholder="Asunto">{{{ old('bodyTurno') }}}</textarea>
                 </div>
             </div>
         </div>

@@ -35,11 +35,12 @@ class ShiftedController extends Controller
         //
         //$correspondences = Correspondence::all();
         $correspondence = Correspondence::where('id',$id)->first();
+        $correspondences = Correspondence::all();
         $senders =Sender::all();
         $positions = Position::all();
 
         //dd($senders);
-        return view('shifteds.create',compact('correspondence','senders','positions'));
+        return view('shifteds.create',compact('correspondences','correspondence','senders','positions'));
     }
 
     /**

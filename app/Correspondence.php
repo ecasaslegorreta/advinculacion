@@ -10,7 +10,7 @@ class Correspondence extends Model
 
     protected $fillable = [
         'sender_id',
-        'recibo_id',
+        'office_id',
         'noSiase',
         'noOficio',
         'fechaRecepcion',
@@ -19,6 +19,9 @@ class Correspondence extends Model
 
     public function sender(){
         return $this->belongsTo('App\Sender');
+    }
+    public function office(){
+        return $this->belongsTo('App\Office');
     }
     public function shifteds(){
         return $this->hasMany('App\Shifted');

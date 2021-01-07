@@ -1,14 +1,14 @@
 @extends('adminlte::page')
-@section ('title','Remitentes | Actualizar')
+@section ('title','Oficinas | Actualizar')
    
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Actualiza dotos de Remitentes</h2>
+                <h2>Actualiza Oficina</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('senders.index') }}"> Regresa a Remitente</a>
+                <a class="btn btn-primary" href="{{ route('offices.index') }}"> Regresa a la dirección</a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
     @endif
   
-    <form action="{{ route('senders.update',$sender->id) }}" method="POST">
+    <form action="{{ route('offices.update',$office->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -32,87 +32,69 @@
             <div class="col-xs-5 col-sm-5 col-md-5">
                 <div class="form-group">
                     <strong>Nombre: </strong>
-                    <input type="text" name="name" class="form-control" placeholder="enter Nombre" value="{{ $sender->name }}">
+                    <input type="text" name="name" class="form-control" placeholder="enter Nombre" value="{{ $office->name }}">
                 </div>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
                 <div class="form-group">
                     <strong>Cargo: </strong>
-                    <input type="text" name="cargo" class="form-control" placeholder="enter Cargo" value="{{ $sender->cargo }}">
+                    <input type="text" name="cargo" class="form-control" placeholder="enter Cargo" value="{{ $office->cargo }}">
                 </div>
-            </div>
-
-            @if ($sender->area =='Externa')
-                @php ($Externa = 'checked')
-                @php ($Interna = '')
-            @else
-                    @php ($Externa = '')
-                    @php ($Interna = 'checked')
-            @endif  
-
-            <div class="col-xs-2 col-sm-2 col-md-2">
-                <form action="#" value="{{ $sender->area }}">
-                    <p><strong>Área: Remitente/Interna</strong></p>
-                    <input type="radio" id="Externa" name="area" value="Externa" {{$Externa}}>
-                        <label for="Externa">Externa</label>
-                    <input type="radio" id="Interna" name="area" value="Interna" {{$Interna}}>
-                        <label for="Interna">Interna</label><br>
-                  </form>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                         <strong>Calle: </strong>
-                        <input type="text" name="calle" class="form-control" placeholder="enter Nombre" value="{{ $sender->calle}}" >
+                        <input type="text" name="calle" class="form-control" placeholder="enter Nombre" value="{{ $office->calle}}" >
                     </div>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="form-group">
                         <strong>No. Interio: </strong>
-                        <input type="text" name="noInterior" class="form-control" placeholder="Número interior" value="{{ $sender->noInterior }}">
+                        <input type="text" name="noInterior" class="form-control" placeholder="Número interior" value="{{ $office->noInterior }}">
                     </div>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="form-group">
                         <strong>No. Exterior: </strong>
-                        <input type="text" name="noExterior" class="form-control" placeholder="Número exterior" value="{{ $sender->noExterior }}">
+                        <input type="text" name="noExterior" class="form-control" placeholder="Número exterior" value="{{ $office->noExterior }}">
                     </div>
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5">
                     <div class="form-group">
                         <strong>Colonia: </strong>
-                        <input type="text" name="colonia" class="form-control" placeholder="Número eterior" value="{{ $sender->colonia}}">
+                        <input type="text" name="colonia" class="form-control" placeholder="Número eterior" value="{{ $office->colonia}}">
                     </div>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2">
                     <div class="form-group">
                         <strong>CP: </strong>
-                        <input type="text" name="cp" class="form-control" placeholder="Código Postal" value="{{ $sender->cp }}">
+                        <input type="text" name="cp" class="form-control" placeholder="Código Postal" value="{{ $office->cp }}">
                     </div>
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5">
                     <div class="form-group">
                         <strong>Ciudad: </strong>
-                        <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" value="{{$sender->ciudad }}">
+                        <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" value="{{$office->ciudad }}">
                     </div>
                 </div>
     
                 <div class="col-xs-4 col-sm-4 col-md-4">
                     <div class="form-group">
                         <strong>Telefono: </strong>
-                        <input type="text" name="telefono" class="form-control" placeholder="Telefono de oficina" value="{{ $sender->telefono }}">
+                        <input type="text" name="telefono" class="form-control" placeholder="Telefono de oficina" value="{{ $office->telefono }}">
                     </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
                     <div class="form-group">
                         <strong>Celular: </strong>
-                        <input type="text" name="celular" class="form-control" placeholder="Celular a 10 digítos" value="{{ $sender->celular }}">
+                        <input type="text" name="celular" class="form-control" placeholder="Celular a 10 digítos" value="{{ $office->celular }}">
                     </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
                     <div class="form-group">
                         <strong>Email: </strong>
-                        <input type="text" name="email" class="form-control" placeholder="Correo Electronico"  value="{{ $sender->email }}">
+                        <input type="text" name="email" class="form-control" placeholder="Correo Electronico"  value="{{ $office->email }}">
                     </div>
                 </div>
             <br>

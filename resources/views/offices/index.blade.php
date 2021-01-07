@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section ('title','Remitentes')
+@section ('title','Dir. Vinculación')
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -9,10 +9,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-                <h1>Recepción de Correspondencia</h1>
+                <h1>Dirección de apoyo a la Vinculación</h1>
         </div>
         <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('correspondences.create') }} "> Nueva correspondencia</a>
+                <a class="btn btn-success" href="{{ route('offices.create') }}"> Crear área</a>
         </div>
     </div>
     <br>
@@ -22,25 +22,28 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Referencias</th>
-                        <th>Remitente</th>
-                        <th>Asunto</th>
+                        <th>Nombre/Cargo</th>
+                        <th>Telefono</th>
+                        <th>Celular</th>
+                        <th>Email</th>
                         <th width="140px">Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($correspondences as $correspondence)
+                    @foreach ($offices as $office)
                         <tr>
-                            <td>{{ $correspondence->id }}</td>
-                            
-                            <td>{{ $correspondence->noSiase }} <p> <small> {{ $correspondence->noOficio }}, {{ $correspondence->fechaRecepcion }} </small></p> </td>
-                            <td>{{ $correspondence->sender->name }}</td>
-                            <td>{{ $correspondence->body }}<p><small>{{ $correspondence->office->name }} </small></p></td>
+                            <td>{{ $office->id }}</td>
+                            <td>{{ $office->name }} <p> <small> {{ $office->cargo }} </small></p> </td>
+                            <td>{{ $office->telefono }}</td>
+                            <td>{{ $office->celular }}</td>
+                            <td>{{ $office->email }}</td>
                             <td>
-                                <form action="{{ route('correspondences.destroy',$correspondence->id) }}" method="POST" class="formulario-eliminar">
-                                    <a class="btn btn-info" href="{{ route('correspondences.show',$correspondence->id) }}">Show</a>
-                                    <a class="btn btn-primary" href="{{ route('correspondences.edit',$correspondence->id)}}"><i class="far fa-edit"></i></a>
+                                <form action="{{ route('offices.destroy',$office->id) }}" method="POST" class="formulario-eliminar">
+                
+                                    <a class="btn btn-info" href="{{ route('offices.show',$office->id) }}">Show</a>
+                    
+                                    <a class="btn btn-primary" href="{{ route('offices.edit',$office->id) }}"><i class="far fa-edit"></i></a>
                 
                                     @csrf
                                     @method('DELETE')

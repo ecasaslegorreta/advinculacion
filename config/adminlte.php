@@ -277,6 +277,11 @@ return [
                     'icon_color' => 'green',
                     'url'  => 'senders',
                 ],
+                [
+                    'text' => 'Areas',
+                    'icon_color' => 'red',
+                    'url'  => 'offices',
+                ],
                /* [
                     'text'    => 'level_one',
                     'url'     => '#',

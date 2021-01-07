@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\correspondence;
+use App\Office;
 use App\Sender;
 use App\Shifted;
 use Illuminate\Http\Request;
+use OfficeSeeder;
 
 class CorrespondenceController extends Controller
 {
@@ -32,9 +34,10 @@ class CorrespondenceController extends Controller
     public function create()
     {
         //
-        $senders =Sender::all();
+        $senders=Sender::all();
+        $offices =Office::all();
         //dd($senders);
-        return view('correspondences.create',compact('senders'));
+        return view('correspondences.create',compact('offices','senders'));
     }
 
     /**
@@ -48,7 +51,7 @@ class CorrespondenceController extends Controller
         //
         $request->validate([
             'sender_id'  => 'required',
-            'recibo_id' =>'required',
+            'office_id' =>'required',
             'noSiase' => 'required',
             'noOficio'  => 'required',
             'fechaRecepcion' => 'required',

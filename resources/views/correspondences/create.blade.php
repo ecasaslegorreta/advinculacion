@@ -47,9 +47,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <strong> Quien recibió:</strong>
-                        <select class="form-control" name="recibo_id" id="sender">
-                            @foreach($senders as $sender)
-                                 <option value="{{ $sender->id }}">{{$sender->name}}</option>
+                        <select class="form-control" name="office_id" id="sender">
+                            @foreach($offices as $office)
+                                 <option value="{{ $office->id }}">{{$office->name}}</option>
                             @endforeach
                         </select>
                     </div> 

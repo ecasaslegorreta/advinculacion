@@ -1,0 +1,3 @@
+﻿LIC. VERONICA GUADARRAMA MENDEZ, DIRECTOR GENEAL,Pendiente-calle,Pendiente-noInt,Pendiente-noExt,Pendiente-colonia,12345,Pendiente-ciudad,Telefono-Pendiente,Celular-Pendiente,mail1@pendiente.com
+INGE. JULIO ENRIQUE CASAS LEGORRETA,Pendiente-calle,Pendiente-noInt,Pendiente-noExt,Pendiente-colonia,12345,Pendiente-ciudad,Telefono-Pendiente,Celular-Pendiente,mail2@pendiente.com
+LIC. MARTITA SANCHEZ GOMEZ, RECEPCIONISTA,Pendiente-calle,Pendiente-noInt,Pendiente-noExt,Pendiente-colonia,12345,Pendiente-ciudad,Telefono-Pendiente,Celular-Pendiente,mail3@pendiente.com
