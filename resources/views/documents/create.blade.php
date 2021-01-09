@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section ('title','Remitente | nuevo')
+@section ('title','Oficio | nuevo')
     <!--usamos select 2 para rrellenar los select -->
     @section('css')
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
@@ -8,10 +8,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Crear correspondencia</h2>
+            <h2>Crear Oficio</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('correspondences.index') }}"> Regresa a remitentes</a>
+            <a class="btn btn-primary" href="{{ route('documents.index') }}"> Lista de oficios</a>
         </div>
     </div>
 </div>
@@ -28,12 +28,28 @@
 @endif
 <br>
 
-<form action="{{ route('correspondences.store') }}" method="POST">
+<form action="{{ route('documents.store') }}" method="POST">
     @csrf
-           <div class="row">
+    <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    <strong>No. Oficio: </strong>
+                    <input readonly type="text" name="noOficio" class="form-control" placeholder="Número de Oficio" value="{{ $no_Oficio }}">
+                </div>
+            </div>
+        
+            <!--<label for="example-date-input" class="col-2 col-form-label"></label>-->
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    <strong>Fecha:</strong>
+                <input type="date" name="fecha" class="form-control" id="example-date-input" value="{{ old('fecha') }}">
+                </div>
+            </div>
+    </div>       
+    <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                         <strong>Remitente</strong>
+                         <strong>Para quien va dirigido</strong>
                         <select class="form-control" name="sender_id" id="sender">
                             @foreach($senders as $sender)
                                  <option value="{{ $sender->id }}">{{$sender->name}}</option>
@@ -46,7 +62,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <strong> Quien recibió:</strong>
+                        <strong> Quien firma:</strong>
                         <select class="form-control" name="office_id" id="office">
                             @foreach($offices as $office)
                                  <option value="{{ $office->id }}">{{$office->name}}</option>
@@ -55,29 +71,7 @@
                     </div> 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <strong> No. de SIASE: </strong>
-                        <input type="text" name="noSiase" class="form-control" placeholder="No. de SIASE" value="{{ old('noSiase') }}" >
-                    </div>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <strong>No. Oficio: </strong>
-                        <input type="text" name="noOficio" class="form-control" placeholder="Número de Oficio" value="{{ old('noOficio') }}">
-                    </div>
-                </div>
-            
-                <!--<label for="example-date-input" class="col-2 col-form-label"></label>-->
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="form-group">
-                        <strong>Fecha de recepción</strong>
-                    <input type="date" name="fechaRecepcion" class="form-control" id="example-date-input" value="{{ old('fechaRecepcion') }}">
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

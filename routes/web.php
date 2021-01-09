@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('positions', 'PositionController');
 Route::resource('senders', 'SenderController');
 Route::resource('correspondences','CorrespondenceController');
+
 Route::resource('shifteds', 'ShiftedController')->except(['create']);
 Route::get('sfifted/create/{correspondece_id}', 'ShiftedController@create')->name('shifteds.create');
+
 Route::resource('offices', 'OfficeController');
+Route::resource('documents', 'DocumentController');

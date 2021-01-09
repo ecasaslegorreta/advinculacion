@@ -17,6 +17,17 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <h2>Seguimiento</h2>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <a class="btn btn-primary" href="{{ route('correspondences.index') }}"> Regresar a correspondencia</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <a class="btn btn-success float-right" href="{{ route('shifteds.create',$correspondence->id) }} "> Nuevo registro</a>
+        </div>
+    </div>
    <br>
    <div class="card text-center">
         <div class="card-header">

@@ -24,4 +24,7 @@ class Office extends Model
     public function correspondences(){
         return $this ->hasMany('App\Correspondence');
     }
+    public function documents(){
+        return $this ->hasMany('App\documents');
+    }
 }

@@ -241,14 +241,78 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+        /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
+        ],*/
+        [
+            'text'    => 'Oficios',
+            'icon' => 'fas fa-file-signature',
+            'icon_color' => 'pink',
+            'url'     => '#',
+            'submenu' => [
+                [
+                    'text' => 'Minutario',
+                    'icon' => 'far fa-file-alt',
+                    'icon_color' => 'red',
+                    'url'  => 'documents',
+                ],
+             /*   [
+                    'text'    => 'Seguimiento',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Reportes',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text' => 'Estadisticos',
+                            'url'  => '#',
+                        ],
+                    ],
+                ],*/
+            ],
         ],
-       
+        [
+            'text'    => 'Correspondencia',
+            'icon' => 'fas fa-file-download',
+            'icon_color' => 'green',
+            'url'     => '#',
+            'submenu' => [
+                [
+                    'text' => 'Recepción',
+                    'url'  => 'correspondences',
+                    'icon' => 'fas fa-fw fa-user',
+                    'icon_color' => 'green',
+                ],
+                [
+                    'text' => 'Seguimiento',
+                    'url'  => 'shifteds',
+                    'icon' => 'fas fa-file-invoice',
+                    'icon_color' => 'yellow',
+                ],
+               /* [
+                    'text'    => 'Seguimiento',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Reportes',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text' => 'Estadisticos',
+                            'url'  => '#',
+                        ],
+                    ],
+                ],*/
+            ],
+        ],
+        
+        
+        /*
         ['header' => 'Correspondencia'],
         [
             'text' => 'Recepción',
@@ -261,7 +325,7 @@ return [
             'url'  => 'shifteds',
             'icon' => 'fas fa-file-invoice',
             'icon_color' => 'yellow',
-        ],
+        ],*/
 
         [
             'text'    => 'Catalogos',

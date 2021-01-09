@@ -43,8 +43,8 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <strong> Id remitente:</strong>
-                        <select class="form-control" name="correspondence_id" id="">
-                            <option  value="{{ $correspondence->id  }}">{{ $correspondence->snoOficio }}</option>
+                        <select class="form-control" name="correspondence_id" id="correspondence">
+                            <option value="{{ $correspondence->id  }}">{{ $correspondence->snoOficio }}</option>
                                 @foreach($correspondences as $correspondenc)
                                     <option value="{{ $correspondenc->id }}">{{$correspondenc->noOficio}}</option>
                                 @endforeach                                              

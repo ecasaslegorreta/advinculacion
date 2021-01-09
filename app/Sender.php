@@ -29,5 +29,8 @@ class Sender extends Model
     public function shifteds(){
         return $this ->hasMany('App\Shifted');
     }
+    public function documents(){
+        return $this ->hasMany('App\documents');
+    }
 
 }
